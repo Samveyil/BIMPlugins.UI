@@ -6,21 +6,6 @@ namespace BIMPlugins.UI
 {
     public static class RibbonUtilExtension
     {
-        private static string GetId(this RibbonItem ribbonItem)
-        {
-            var type = typeof(RibbonItem);
-
-            var parentId = type.GetField("m_parentId",
-                BindingFlags.Instance | BindingFlags.NonPublic)
-                ?.GetValue(ribbonItem)
-                ?? string.Empty;
-
-            var generateIdMethod = type.GetMethod("generateId",
-                BindingFlags.Static | BindingFlags.NonPublic);
-
-            return (string)generateIdMethod?.Invoke(ribbonItem, new[] { parentId, ribbonItem.Name });
-        }
-
         public static Autodesk.Windows.RibbonItem ToAWRibbonItem(this RibbonItem ribbonItem)
         {
             var ribbonItemType = typeof(RibbonItem);
@@ -42,6 +27,25 @@ namespace BIMPlugins.UI
             return ribbon;
         }
 
+        public static Autodesk.Windows.RibbonPanel CreateAWPanel(string panelName= "BIMPlugins")
+        {
+            var panel = new Autodesk.Windows.RibbonPanel
+            {
+                IsVisible = false,
+                FloatingOrientation = System.Windows.Controls.Orientation.Vertical
+            };
+
+            var source = new Autodesk.Windows.RibbonPanelSource()
+            {
+                Id = $"{panelName}_Modify",
+                Name = panelName,
+                Title = panelName
+            };
+            panel.Source = source;
+
+            return panel;
+        }
+        
         public static Autodesk.Windows.RibbonPanel ToAWRibbonPanel(this RibbonPanel ribbonPanel)
         {
             var type = typeof(RibbonPanel);
