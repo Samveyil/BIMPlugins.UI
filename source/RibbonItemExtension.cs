@@ -7,8 +7,8 @@ namespace BIMPlugins.UI
     {
         public static TRibbonItem SetShowText<TRibbonItem>(this TRibbonItem ribbonItem, bool showText = false) where TRibbonItem : RibbonItem
         {
-            if (ribbonItem.GetRibbonItem() != null)
-                ribbonItem.GetRibbonItem().ShowText = showText;
+            if (ribbonItem.ToAWRibbonItem() != null)
+                ribbonItem.ToAWRibbonItem().ShowText = showText;
             return ribbonItem;
         }
 

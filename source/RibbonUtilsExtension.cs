@@ -21,7 +21,7 @@ namespace BIMPlugins.UI
             return (string)generateIdMethod?.Invoke(ribbonItem, new[] { parentId, ribbonItem.Name });
         }
 
-        public static Autodesk.Windows.RibbonItem GetRibbonItem(this RibbonItem ribbonItem)
+        public static Autodesk.Windows.RibbonItem ToAWRibbonItem(this RibbonItem ribbonItem)
         {
             var ribbonItemType = typeof(RibbonItem);
 
@@ -31,18 +31,18 @@ namespace BIMPlugins.UI
             return buttonField?.GetValue(ribbonItem) as Autodesk.Windows.RibbonItem;
         }
 
-        public static T GetRibbonItem<T>(this RibbonItem ribbonItem) where T : Autodesk.Windows.RibbonItem
+        public static T ToAWRibbonItem<T>(this RibbonItem ribbonItem) where T : Autodesk.Windows.RibbonItem
         {
-            return ribbonItem.GetRibbonItem() as T;
+            return ribbonItem.ToAWRibbonItem() as T;
         }
-        public static T GetRibbonItem<T>(this RibbonItem ribbonItem, Action<T> action) where T : Autodesk.Windows.RibbonItem
+        public static T ToAWRibbonItem<T>(this RibbonItem ribbonItem, Action<T> action) where T : Autodesk.Windows.RibbonItem
         {
-            var ribbon = ribbonItem.GetRibbonItem<T>();
+            var ribbon = ribbonItem.ToAWRibbonItem<T>();
             if (ribbon is not null) action?.Invoke(ribbon);
             return ribbon;
         }
 
-        public static Autodesk.Windows.RibbonPanel GetRibbonPanel(this RibbonPanel ribbonPanel)
+        public static Autodesk.Windows.RibbonPanel ToAWRibbonPanel(this RibbonPanel ribbonPanel)
         {
             var type = typeof(RibbonPanel);
             var _ribbonPanel = type.GetField("m_RibbonPanel",

@@ -1,9 +1,17 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.37012.4 d17.14
+VisualStudioVersion = 17.14.37012.4
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BIMPlugins.UI", "source\BIMPlugins.UI.csproj", "{8C1076A8-1072-248D-1F16-4CA4210F79EB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Элементы решения", "Элементы решения", "{754FC069-D67B-A9D7-50A1-8D1CA196D8F1}"
+	ProjectSection(SolutionItems) = preProject
+		LICENSE.txt = LICENSE.txt
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "_build", "build\_build.csproj", "{A3FDF8F3-ED1C-42AF-A862-D96947DE5046}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +53,18 @@ Global
 		{8C1076A8-1072-248D-1F16-4CA4210F79EB}.R2023|Any CPU.Build.0 = R2023|Any CPU
 		{8C1076A8-1072-248D-1F16-4CA4210F79EB}.R2024|Any CPU.ActiveCfg = R2024|Any CPU
 		{8C1076A8-1072-248D-1F16-4CA4210F79EB}.R2024|Any CPU.Build.0 = R2024|Any CPU
+		{A3FDF8F3-ED1C-42AF-A862-D96947DE5046}.Debug R2019|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3FDF8F3-ED1C-42AF-A862-D96947DE5046}.Debug R2020|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3FDF8F3-ED1C-42AF-A862-D96947DE5046}.Debug R2021|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3FDF8F3-ED1C-42AF-A862-D96947DE5046}.Debug R2022|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3FDF8F3-ED1C-42AF-A862-D96947DE5046}.Debug R2023|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3FDF8F3-ED1C-42AF-A862-D96947DE5046}.Debug R2024|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3FDF8F3-ED1C-42AF-A862-D96947DE5046}.R2019|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3FDF8F3-ED1C-42AF-A862-D96947DE5046}.R2020|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3FDF8F3-ED1C-42AF-A862-D96947DE5046}.R2021|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3FDF8F3-ED1C-42AF-A862-D96947DE5046}.R2022|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3FDF8F3-ED1C-42AF-A862-D96947DE5046}.R2023|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3FDF8F3-ED1C-42AF-A862-D96947DE5046}.R2024|Any CPU.ActiveCfg = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
