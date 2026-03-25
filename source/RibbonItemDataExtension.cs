@@ -4,19 +4,8 @@ using System.Windows.Media;
 
 namespace BIMPlugins.UI
 {
-    /// <summary>
-    /// RibbonItemDataExtension
-    /// </summary>
     public static class RibbonItemDataExtension
     {
-        #region Set RibbonItemData
-        /// <summary>
-        /// Sets the contextual help bound with this RibbonItemData.
-        /// </summary>
-        /// <typeparam name="TRibbonItem">RibbonItemData</typeparam>
-        /// <param name="ribbonItem"></param>
-        /// <param name="helpPath"></param>
-        /// <returns></returns>
         public static TRibbonItem SetContextualHelp<TRibbonItem>(this TRibbonItem ribbonItem, string helpPath) where TRibbonItem : RibbonItemData
         {
             if (helpPath != null)
@@ -25,13 +14,6 @@ namespace BIMPlugins.UI
             return ribbonItem;
         }
 
-        /// <summary>
-        /// Set RibbonItemData ToolTip
-        /// </summary>
-        /// <typeparam name="TRibbonItem">RibbonItemData</typeparam>
-        /// <param name="ribbonItem"></param>
-        /// <param name="toolTip"></param>
-        /// <returns></returns>
         public static TRibbonItem SetToolTip<TRibbonItem>(this TRibbonItem ribbonItem, string toolTip) where TRibbonItem : RibbonItemData
         {
             if (toolTip != null)
@@ -40,13 +22,6 @@ namespace BIMPlugins.UI
             return ribbonItem;
         }
 
-        /// <summary>
-        /// Set RibbonItemData LongDescription
-        /// </summary>
-        /// <typeparam name="TRibbonItem">RibbonItemData</typeparam>
-        /// <param name="ribbonItem"></param>
-        /// <param name="longDescription"></param>
-        /// <returns></returns>
         public static TRibbonItem SetLongDescription<TRibbonItem>(this TRibbonItem ribbonItem, string longDescription) where TRibbonItem : RibbonItemData
         {
             if (longDescription != null)
@@ -55,26 +30,12 @@ namespace BIMPlugins.UI
             return ribbonItem;
         }
 
-        /// <summary>
-        /// Set RibbonItemData ToolTipImage
-        /// </summary>
-        /// <typeparam name="TRibbonItem">RibbonItemData</typeparam>
-        /// <param name="ribbonItem"></param>
-        /// <param name="toolTipImage"></param>
-        /// <returns></returns>
         public static TRibbonItem SetToolTipImage<TRibbonItem>(this TRibbonItem ribbonItem, ImageSource toolTipImage) where TRibbonItem : RibbonItemData
         {
             ribbonItem.ToolTipImage = toolTipImage;
             return ribbonItem;
         }
 
-        /// <summary>
-        /// Set RibbonItemData ToolTipImage
-        /// </summary>
-        /// <typeparam name="TRibbonItem">RibbonItemData</typeparam>
-        /// <param name="ribbonItem"></param>
-        /// <param name="toolTipImage"></param>
-        /// <returns></returns>
         public static TRibbonItem SetToolTipImage<TRibbonItem>(this TRibbonItem ribbonItem, string toolTipImage) where TRibbonItem : RibbonItemData
         {
             var bitmapSource = toolTipImage?.GetBitmapSource();
@@ -84,16 +45,7 @@ namespace BIMPlugins.UI
 
             return ribbonItem.SetToolTipImage(bitmapSource);
         }
-        #endregion
 
-        #region Set ButtonData
-        /// <summary>
-        /// Set ButtonData Text
-        /// </summary>
-        /// <typeparam name="TRibbonItem">ButtonData</typeparam>
-        /// <param name="ribbonItem"></param>
-        /// <param name="text"></param>
-        /// <returns></returns>
         public static TRibbonItem SetText<TRibbonItem>(this TRibbonItem ribbonItem, string text = "") where TRibbonItem : RibbonItemData
         {
             if (text == null)
@@ -108,13 +60,6 @@ namespace BIMPlugins.UI
             return ribbonItem;
         }
 
-        /// <summary>
-        /// Set ButtonData/ComboBoxData/ComboBoxMemberData/TextBoxData Image
-        /// </summary>
-        /// <typeparam name="TRibbonItem"></typeparam>
-        /// <param name="ribbonItem"></param>
-        /// <param name="image"></param>
-        /// <returns></returns>
         public static TRibbonItem SetImage<TRibbonItem>(this TRibbonItem ribbonItem, string image) where TRibbonItem : RibbonItemData
         {
             var bitmapSource = image?.GetBitmapSource();
@@ -124,14 +69,6 @@ namespace BIMPlugins.UI
 
             return ribbonItem.SetImage(bitmapSource);
         }
-
-        /// <summary>
-        /// Set ButtonData/ComboBoxData/ComboBoxMemberData/TextBoxData LargeImage
-        /// </summary>
-        /// <typeparam name="TRibbonItem"></typeparam>
-        /// <param name="ribbonItem"></param>
-        /// <param name="largeImage"></param>
-        /// <returns></returns>
         public static TRibbonItem SetLargeImage<TRibbonItem>(this TRibbonItem ribbonItem, string largeImage) where TRibbonItem : RibbonItemData
         {
             var bitmapSource = largeImage?.GetBitmapSource();
@@ -142,13 +79,6 @@ namespace BIMPlugins.UI
             return ribbonItem.SetLargeImage(bitmapSource);
         }
 
-        /// <summary>
-        /// Set ButtonData/ComboBoxData/ComboBoxMemberData/TextBoxData Image
-        /// </summary>
-        /// <typeparam name="TRibbonItem">ButtonData</typeparam>
-        /// <param name="ribbonItem"></param>
-        /// <param name="image"></param>
-        /// <returns></returns>
         public static TRibbonItem SetImage<TRibbonItem>(this TRibbonItem ribbonItem, ImageSource image) where TRibbonItem : RibbonItemData
         {
             image = image.GetThemeImageSource(RibbonThemeUtils.IsLight);
@@ -167,14 +97,6 @@ namespace BIMPlugins.UI
 
             return ribbonItem;
         }
-
-        /// <summary>
-        /// Set ButtonData/ComboBoxData/ComboBoxMemberData/TextBoxData LargeImage
-        /// </summary>
-        /// <typeparam name="TRibbonItem">ButtonData</typeparam>
-        /// <param name="ribbonItem"></param>
-        /// <param name="largeImage"></param>
-        /// <returns></returns>
         public static TRibbonItem SetLargeImage<TRibbonItem>(this TRibbonItem ribbonItem, ImageSource largeImage) where TRibbonItem : RibbonItemData
         {
             largeImage = largeImage.GetThemeImageSource(RibbonThemeUtils.IsLight);
@@ -197,7 +119,5 @@ namespace BIMPlugins.UI
 
             return ribbonItem;
         }
-        #endregion
-
     }
 }
