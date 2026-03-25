@@ -7,12 +7,6 @@ namespace BIMPlugins.UI
     /// </summary>
     public static class RibbonHelpExtension
     {
-        #region ContextualHelp
-        /// <summary>
-        /// Get ContextualHelp by <paramref name="helpPath"/>
-        /// </summary>
-        /// <param name="helpPath"></param>
-        /// <returns></returns>
         internal static ContextualHelp GetContextualHelp(string helpPath)
         {
             ContextualHelp contextHelp = null;
@@ -30,6 +24,5 @@ namespace BIMPlugins.UI
             catch { }
             return contextHelp;
         }
-        #endregion
     }
 }

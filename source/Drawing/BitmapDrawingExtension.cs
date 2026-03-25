@@ -5,16 +5,8 @@ using System.Windows.Media.Imaging;
 
 namespace BIMPlugins.UI.Drawing
 {
-    /// <summary>
-    /// BitmapDrawingExtension
-    /// </summary>
     public static class BitmapDrawingExtension
     {
-        /// <summary>
-        /// Convert <paramref name="bitmap"/> to <seealso cref="BitmapSource"/>
-        /// </summary>
-        /// <param name="bitmap"></param>
-        /// <returns></returns>
         public static BitmapSource GetBitmapSource(this System.Drawing.Bitmap bitmap)
         {
             var data = bitmap.LockBits(
@@ -30,12 +22,6 @@ namespace BIMPlugins.UI.Drawing
 
             return bitmapSource;
         }
-
-        /// <summary>
-        /// Convert <paramref name="icon"/> to <seealso cref="BitmapSource"/>
-        /// </summary>
-        /// <param name="icon"></param>
-        /// <returns></returns>
         public static BitmapSource GetBitmapSource(this System.Drawing.Icon icon)
         {
             var stream = new MemoryStream();
@@ -43,12 +29,6 @@ namespace BIMPlugins.UI.Drawing
             var decoder = BitmapDecoder.Create(stream, BitmapCreateOptions.None, BitmapCacheOption.Default);
             return decoder.Frames.OrderBy(e => e.Width).LastOrDefault();
         }
-
-        /// <summary>
-        /// Convert <paramref name="image"/> to <seealso cref="BitmapSource"/>
-        /// </summary>
-        /// <param name="image"></param>
-        /// <returns></returns>
         public static BitmapSource GetBitmapSource(this System.Drawing.Image image)
         {
             var bitmap = new System.Drawing.Bitmap(image);
