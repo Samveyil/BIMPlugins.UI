@@ -7,7 +7,7 @@ namespace BIMPlugins.UI
 {
     public static class RibbonTabExtension
     {
-        public static void FindOrCreateTab(this UIControlledApplication application, string tabName)
+        public static void FindOrCreateRibbonTab(this UIControlledApplication application, string tabName)
         {
             var ribbon = Autodesk.Windows.ComponentManager.Ribbon;
 
@@ -52,7 +52,7 @@ namespace BIMPlugins.UI
             ribbonTab.Panels.Add(ribbonPanel);
             return removed;
         }
-
+        
         public static Autodesk.Windows.RibbonTab SetPanelsOrderBy<TKey>(this Autodesk.Windows.RibbonTab ribbonTab, Func<Autodesk.Windows.RibbonPanel, TKey> keySelector)
         {
             if (ribbonTab.Panels.Count <= 1)
