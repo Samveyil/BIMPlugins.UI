@@ -4,12 +4,29 @@ using System.Linq;
 
 namespace BIMPlugins.UI
 {
+    /// <summary>
+    /// RibbonRadioExtension
+    /// </summary>
     public static class RibbonRadioExtension
     {
+        #region RadioButtonGroup
+        /// <summary>
+        /// CreateRadioButtonGroup
+        /// </summary>
+        /// <param name="ribbonPanel"></param>
+        /// <param name="toggleButtonDatas"></param>
+        /// <returns></returns>
         public static RadioButtonGroup CreateRadioButtonGroup(this RibbonPanel ribbonPanel, params ToggleButtonData[] toggleButtonDatas)
         {
             return ribbonPanel.CreateRadioButtonGroup(null, toggleButtonDatas);
         }
+        /// <summary>
+        /// CreateRadioButtonGroup
+        /// </summary>
+        /// <param name="ribbonPanel"></param>
+        /// <param name="targetText"></param>
+        /// <param name="toggleButtonDatas"></param>
+        /// <returns></returns>
         public static RadioButtonGroup CreateRadioButtonGroup(this RibbonPanel ribbonPanel, string targetText, params ToggleButtonData[] toggleButtonDatas)
         {
             RadioButtonGroup radioButtonGroup = null;
@@ -27,6 +44,12 @@ namespace BIMPlugins.UI
 
         }
 
+        /// <summary>
+        /// AddItems
+        /// </summary>
+        /// <param name="radioButtonGroup"></param>
+        /// <param name="toggleButtonDatas"></param>
+        /// <returns></returns>
         public static RadioButtonGroup AddToggleButtons(this RadioButtonGroup radioButtonGroup, params ToggleButtonData[] toggleButtonDatas)
         {
             foreach (var toggleButtonData in toggleButtonDatas)
@@ -39,7 +62,15 @@ namespace BIMPlugins.UI
             }
             return radioButtonGroup;
         }
+        #endregion
 
+        #region ToggleButtonData
+        /// <summary>
+        /// NewToggleButtonData
+        /// </summary>
+        /// <param name="ribbonPanel"></param>
+        /// <param name="targetName"></param>
+        /// <returns></returns>
         public static ToggleButtonData NewToggleButtonData(this RibbonPanel ribbonPanel, string targetName = null)
         {
             if (string.IsNullOrWhiteSpace(targetName))
@@ -49,22 +80,56 @@ namespace BIMPlugins.UI
 
             return new ToggleButtonData(targetName, targetName);
         }
+
+        /// <summary>
+        /// NewToggleButtonData
+        /// </summary>
+        /// <typeparam name="TExternalCommand"></typeparam>
+        /// <param name="ribbonPanel"></param>
+        /// <param name="text"></param>
+        /// <returns></returns>
         public static ToggleButtonData NewToggleButtonData<TExternalCommand>(this RibbonPanel ribbonPanel, string text = null) where TExternalCommand : class, IExternalCommand, new()
         {
             var commandType = typeof(TExternalCommand);
             return ribbonPanel.NewToggleButtonData(commandType, text);
         }
+
+        /// <summary>
+        /// NewToggleButtonData
+        /// </summary>
+        /// <typeparam name="TExternalCommand"></typeparam>
+        /// <typeparam name="TAvailability"></typeparam>
+        /// <param name="ribbonPanel"></param>
+        /// <param name="text"></param>
+        /// <returns></returns>
         public static ToggleButtonData NewToggleButtonData<TExternalCommand, TAvailability>(this RibbonPanel ribbonPanel, string text = null) where TExternalCommand : class, IExternalCommand, new() where TAvailability : class, IExternalCommandAvailability, new()
         {
             var buttonData = ribbonPanel.NewToggleButtonData<TExternalCommand>(text);
             buttonData.AvailabilityClassName = typeof(TAvailability).FullName;
             return buttonData;
         }
+
+        /// <summary>
+        /// NewToggleButtonData
+        /// </summary>
+        /// <param name="ribbonPanel"></param>
+        /// <param name="commandType"></param>
+        /// <param name="text"></param>
+        /// <returns></returns>
         public static ToggleButtonData NewToggleButtonData(this RibbonPanel ribbonPanel, Type commandType, string text = null)
         {
             return RibbonSafeExtension.NewPushButtonData<ToggleButtonData>(ribbonPanel, commandType, text);
         }
 
+        #endregion
+
+        #region RadioButtonGroupData
+        /// <summary>
+        /// NewRadioButtonGroupData
+        /// </summary>
+        /// <param name="ribbonPanel"></param>
+        /// <param name="targetName"></param>
+        /// <returns></returns>
         public static RadioButtonGroupData NewRadioButtonGroupData(this RibbonPanel ribbonPanel, string targetName = null)
         {
             if (string.IsNullOrWhiteSpace(targetName))
@@ -76,5 +141,6 @@ namespace BIMPlugins.UI
 
             return radioButtonGroupData;
         }
+        #endregion
     }
 }

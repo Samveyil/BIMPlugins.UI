@@ -1,4 +1,6 @@
 ﻿using Autodesk.Revit.UI;
+using BIMPlugins.UI.Utils;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -18,7 +20,7 @@ namespace BIMPlugins.UI
                 ribbonPanel = application.CreateRibbonPanel(RibbonSafeExtension.SafeRibbonPanelName(panelName));
                 ribbonPanel.Title = panelName;
             }
-            return ribbonPanel;
+            return ribbonPanel.ThemeChangeEnable();
         }
         public static RibbonPanel CreateOrSelectPanel(this UIControlledApplication application, string panelName)
         {
@@ -47,7 +49,7 @@ namespace BIMPlugins.UI
                     ribbonPanel.Title = panelName;
                 }
             }
-            return ribbonPanel;
+            return ribbonPanel.ThemeChangeEnable();
         }
         public static RibbonPanel CreateOrSelectPanel(this UIControlledApplication application, string tabName, string panelName)
         {
@@ -65,9 +67,11 @@ namespace BIMPlugins.UI
             if (ribbonPanel is null)
                 return ribbonPanel;
 
+            ribbonPanel.ThemeChangeDisable();
             ribbonPanel.Visible = false;
             ribbonPanel.Enabled = false;
 
+            // Disable Floating
             ribbonPanel.ToAWRibbonPanel().IsFloating = false;
 
             ribbonPanel.GetRibbonTab().Remove(ribbonPanel.ToAWRibbonPanel());
@@ -138,6 +142,20 @@ namespace BIMPlugins.UI
             }
 
             return ribbonPanel;
+        }
+
+        public static void MoveRibbonPanel(this Autodesk.Windows.RibbonPanel ribbonPanel, int newIndex = 0)
+        {
+            var ribbonTab = ribbonPanel.Tab;
+            var panels = ribbonTab.Panels;
+            var length = panels.Count;
+            if (length <= 1) return;
+
+            var index = panels.IndexOf(ribbonPanel);
+            if (index == -1) return;
+
+            newIndex = Math.Max(0, Math.Min(length - 1, newIndex));
+            panels.Move(panels.IndexOf(ribbonPanel), newIndex);
         }
 
         private static bool IsTabContains(this RibbonPanel ribbonPanel)
