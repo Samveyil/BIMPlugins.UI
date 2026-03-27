@@ -39,31 +39,6 @@ namespace BIMPlugins.UI
             return radioButtonGroup;
         }
 
-        public static ToggleButtonData NewToggleButtonData(this RibbonPanel ribbonPanel, string targetName = null)
-        {
-            if (string.IsNullOrWhiteSpace(targetName))
-                targetName = nameof(ToggleButtonData);
-
-            targetName = RibbonSafeExtension.GenerateSafeButtonName(ribbonPanel, targetName, targetName);
-
-            return new ToggleButtonData(targetName, targetName);
-        }
-        public static ToggleButtonData NewToggleButtonData<TExternalCommand>(this RibbonPanel ribbonPanel, string text = null) where TExternalCommand : class, IExternalCommand, new()
-        {
-            var commandType = typeof(TExternalCommand);
-            return ribbonPanel.NewToggleButtonData(commandType, text);
-        }
-        public static ToggleButtonData NewToggleButtonData<TExternalCommand, TAvailability>(this RibbonPanel ribbonPanel, string text = null) where TExternalCommand : class, IExternalCommand, new() where TAvailability : class, IExternalCommandAvailability, new()
-        {
-            var buttonData = ribbonPanel.NewToggleButtonData<TExternalCommand>(text);
-            buttonData.AvailabilityClassName = typeof(TAvailability).FullName;
-            return buttonData;
-        }
-        public static ToggleButtonData NewToggleButtonData(this RibbonPanel ribbonPanel, Type commandType, string text = null)
-        {
-            return RibbonSafeExtension.NewPushButtonData<ToggleButtonData>(ribbonPanel, commandType, text);
-        }
-
         public static RadioButtonGroupData NewRadioButtonGroupData(this RibbonPanel ribbonPanel, string targetName = null)
         {
             if (string.IsNullOrWhiteSpace(targetName))
