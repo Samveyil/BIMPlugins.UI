@@ -103,7 +103,7 @@
       "properties": {
         "Configurations": {
           "type": "array",
-          "description": "Имена конфигураций для сборки (перечислить через запятую)",
+          "description": "Build configurations to run sequentially",
           "items": {
             "type": "string"
           }
