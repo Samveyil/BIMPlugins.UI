@@ -9,7 +9,7 @@
 	</PropertyGroup>
 
 	<PropertyGroup>
-		<TargetFrameworks>net47;net48;net8.0-windows</TargetFrameworks>
+		<TargetFrameworks>net47;net48;net8.0-windows7.0</TargetFrameworks>
 	</PropertyGroup>
 	<Choose>
 		<When Condition="$(TargetFramework.StartsWith('net47'))">
