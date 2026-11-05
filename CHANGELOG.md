@@ -9,7 +9,6 @@ First release on nuget.org.
 ### Features
 - One package for Revit 2019–2025: `net47` (Revit 2019 API), `net48` (Revit 2021 API) and `net8.0-windows` (Revit 2025 API).
 - Package metadata: MIT license, README, icon, project and repository links.
-- `LICENSE.txt` in the package with the copyright of [ricaun.Revit.UI](https://github.com/ricaun-io/ricaun.Revit.UI), the project this package is based on.
 - Symbol package (`.snupkg`) with portable PDBs.
 - Publish to nuget.org from GitHub Actions with Trusted Publishing.
 ### Updated
