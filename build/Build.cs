@@ -12,7 +12,7 @@ public class Build : BIMPluginsBuild
     [Solution("BIMPlugins.UI.sln")]
     protected override Solution Solution { get; }
 
-    [Parameter("Имя проекта для сборки")]
+    [Parameter("Project name to build")]
     protected override string ProjectName { get; } = "BIMPlugins.UI";
 
     [Parameter("Build configurations to run sequentially")]
