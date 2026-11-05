@@ -4,7 +4,6 @@
 [![Visual Studio 2022](https://img.shields.io/badge/Visual%20Studio-2022-blue)](https://github.com/Samveyil/BIMPlugins.UI)
 [![Nuke](https://img.shields.io/badge/Nuke-Build-blue)](https://nuke.build/)
 [![License MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/Samveyil/BIMPlugins.UI/blob/master/LICENSE.txt)
-[![Publish](https://github.com/Samveyil/BIMPlugins.UI/actions/workflows/publish.yml/badge.svg)](https://github.com/Samveyil/BIMPlugins.UI/actions/workflows/publish.yml)
 [![NuGet](https://img.shields.io/nuget/v/BIMPlugins.UI.svg)](https://www.nuget.org/packages/BIMPlugins.UI)
 
 Fluent extension methods to build the Revit ribbon: panels, push, pulldown, split, toggle and radio buttons,
