@@ -54,8 +54,8 @@
 	<PropertyGroup>
 		<Company>BIMPlugins</Company>
 		<Authors>Samir Shibliev</Authors>
-		<Description>Revit Package $(PackageId)</Description>
-		<PackageTags>revit;revit-api;autodesk;bim;extensions</PackageTags>
+		<Description>Fluent extension methods to build the Autodesk Revit ribbon: panels, push, pulldown, split, toggle and radio buttons, combo boxes, text boxes and stacked items, images with light and dark themes, localization. One package for Revit 2019–2025.</Description>
+		<PackageTags>revit;revit-api;autodesk;bim;extensions;ribbon;ui</PackageTags>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<CopyrightYears>$([System.DateTime]::Now.ToString('yyyy'))</CopyrightYears>
 	</PropertyGroup>
