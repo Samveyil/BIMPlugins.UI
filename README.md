@@ -201,7 +201,7 @@ button.SetShowText(false).SetItemSize(Autodesk.Windows.RibbonItemSize.Standard);
 
 ## Credits
 
-Based on [ricaun.Revit.UI](https://github.com/ricaun-io/ricaun.Revit.UI) by ricaun, licensed under the MIT License.
+Based on [ricaun.Revit.UI](https://github.com/ricaun-io/ricaun.Revit.UI).
 
 ## License
 
